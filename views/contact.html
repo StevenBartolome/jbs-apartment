@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - JB's Apartment</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../assets/images/jbs-logo-1.png" alt="JB's Apartment Logo" class="logo-img">
+                <h2>JB's Apartment</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="units.html" class="nav-link">Units</a>
+                </li>
+                <li class="nav-item">
+                    <a href="amenities.html" class="nav-link">Amenities</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch to book your stay or ask any questions</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>We're here to help you with your accommodation needs. Contact us through any of the following
+                        methods:</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                                <p>Available 24/7</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>info@jbsapartment.com</p>
+                                <p>Response within 24 hours</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h4>Address</h4>
+                                <p>123 Main Street<br>Downtown District<br>City, State 12345</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-details">
+                                <h4>Office Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                    Saturday - Sunday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <div id="form-messages"></div>
+                    <form class="contact-form" id="contactForm" action="/api/contact" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="unit">Preferred Unit Type</label>
+                            <select id="unit" name="unit" onchange="toggleConditionalFields()">
+                                <option value="">Select a unit type</option>
+                                <option value="short-term">Short term rental</option>
+                                <option value="long-term">Long term rental</option>
+                            </select>
+                        </div>
+
+                        <!-- Short-term rental fields -->
+                        <div id="short-term-fields" class="conditional-fields">
+                            <div class="form-group">
+                                <label for="airbnb-unit">Select Airbnb Unit</label>
+                                <select id="airbnb-unit" name="airbnb-unit">
+                                    <option value="">Choose your unit</option>
+                                    <option value="white-deluxe">White (Deluxe)</option>
+                                    <option value="red-regular">Red (Regular)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Long-term rental fields -->
+                        <div id="long-term-fields" class="conditional-fields">
+                            <div class="form-group">
+                                <label for="apartment-unit">Select Apartment Unit</label>
+                                <select id="apartment-unit" name="apartment-unit">
+                                    <option value="">Choose your unit</option>
+                                    <option value="unit-a">Unit A</option>
+                                    <option value="unit-b">Unit B</option>
+                                    <option value="unit-c">Unit C</option>
+                                    <option value="unit-d">Unit D</option>
+                                    <option value="unit-e">Unit E</option>
+                                    <option value="unit-g">Unit G</option>
+                                    <option value="unit-h">Unit H</option>
+                                    <option value="unit-i">Unit I</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rental-term">Rental Term</label>
+                                <select id="rental-term" name="rental-term">
+                                    <option value="">Select rental duration</option>
+                                    <option value="6-months">6 Months</option>
+                                    <option value="12-months">12 Months</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Date fields for short-term rentals -->
+                        <div id="short-term-dates" class="date-fields">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="check-in-date">Check-in Date</label>
+                                    <input type="date" id="check-in-date" name="check-in-date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="check-out-date">Check-out Date</label>
+                                    <input type="date" id="check-out-date" name="check-out-date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Date fields for long-term rentals -->
+                        <div id="long-term-dates" class="date-fields">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="visit-date">Date of Visit</label>
+                                    <input type="date" id="visit-date" name="visit-date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required
+                                placeholder="Tell us about your requirements or ask any questions..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <span id="btn-text">Send Message</span>
+                            <span id="btn-spinner" class="spinner" style="display: none;">Sending...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2>Our Location</h2>
+            <div class="map-placeholder">
+                <img src="/placeholder.svg?height=300&width=800" alt="JB's Apartment Location Map">
+                <div class="map-overlay">
+                    <p>📍 123 Main Street, Downtown District</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>JB's Apartment</h3>
+                    <p>Your premium home away from home. Choose from our 2 luxury Airbnb units for short stays or 8
+                        modern apartments for long-term living in the heart of the city.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Accommodations</h4>
+                    <ul>
+                        <li><strong>Airbnb Units:</strong> White &amp; Red</li>
+                        <li><strong>Apartments:</strong> 8 Units Available</li>
+                        <li><strong>Lease Terms:</strong> Flexible Options</li>
+                        <li><strong>Booking:</strong> Online &amp; Phone</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="units.html">Units</a></li>
+                        <li><a href="amenities.html">Amenities</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p>📞 +1 (555) 123-4567</p>
+                    <p>✉️ info@jbsapartment.com</p>
+                    <p>📍 Downtown Premium District</p>
+                    <p>🕒 Available 24/7</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 JB's Apartment. All rights reserved. | Premium Accommodation Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/contact.js"></script>
+</body>
+
+</html>
