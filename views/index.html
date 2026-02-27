@@ -1,212 +1,403 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JB's Apartment - Premium Accommodation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JB's Apartment — Comfortable & Secure Stays</title>
+  <meta name="description"
+    content="Premium Airbnb and apartment units with fast WiFi, full furnishings, and 24/7 security. Book your stay today.">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    /* ── Hero ────────────────────────────────────────────── */
+    .hero {
+      height: 100vh;
+      min-height: 640px;
+    }
+
+    /* ── Quick Highlights ────────────────────────────────── */
+    .highlights {
+      padding: 0;
+    }
+
+    .highlights .container {
+      transform: translateY(-40px);
+      position: relative;
+      z-index: 3;
+    }
+
+    /* ── Featured Units ──────────────────────────────────── */
+    .units-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media(max-width:900px) {
+      .units-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:580px) {
+      .units-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Location ────────────────────────────────────────── */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media(max-width:768px) {
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Reviews ─────────────────────────────────────────── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media(max-width:900px) {
+      .reviews-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:580px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="../assets/images/jbs-logo-1.png" alt="JB's Apartment Logo" class="logo-img">
-                <h2>JB's Apartment</h2>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="units.html" class="nav-link">Units</a>
-                </li>
-                <li class="nav-item">
-                    <a href="amenities.html" class="nav-link">Amenities</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+
+  <!-- ═══ NAVBAR ══════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.html">
+        <img src="../assets/images/jbs-logo-1.png" alt="JB's Logo" class="logo-img">
+        <h2>JB's Apartment</h2>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="units.html" class="nav-link">Our Units</a></li>
+        <li><a href="location.html" class="nav-link">Location</a></li>
+        <li><a href="policies.html" class="nav-link">Policies</a></li>
+        <li><a href="inquiry.html" class="nav-link nav-cta btn btn-gold btn-sm">Inquire Now</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═════════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image: url('../assets/images/jbs-front.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('../assets/images/2.png')"></div>
+      <div class="hero-slide" style="background-image: url('../assets/images/white/white1.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('../assets/images/red/red1.jpg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span></span> JB's Apartment &amp; Airbnb Units</div>
+      <h1>Comfortable &amp; Secure Stays in Baliuag, Bulacan</h1>
+      <p class="hero-sub">Premium fully furnished units in Baliuag, Bulacan whether you're visiting for a weekend or
+        staying long-term, we have the perfect space for you.</p>
+      <div class="hero-buttons">
+        <a href="inquiry.html" class="btn btn-gold btn-lg">🔵 Inquire Now</a>
+        <a href="https://www.airbnb.com/rooms/1113813371026305159?source_impression_id=p3_1772187158_P3jXy-xeqGkRcX6z"
+          target="_blank" rel="noopener" class="btn btn-airbnb btn-lg">🏠 Book via Airbnb</a>
+        <a href="https://www.facebook.com/JBsApartment" target="_blank" rel="noopener"
+          class="btn btn-facebook btn-lg">💬 Message on Facebook</a>
+      </div>
+    </div>
+
+    <div class="hero-indicators">
+      <div class="indicator active"></div>
+      <div class="indicator"></div>
+      <div class="indicator"></div>
+      <div class="indicator"></div>
+    </div>
+  </section>
+
+  <!-- ═══ QUICK HIGHLIGHTS ══════════════════════════════════════ -->
+  <section class="highlights">
+    <div class="container">
+      <div class="highlights-grid fade-up">
+        <div class="highlight-item">
+          <div class="highlight-icon">📶</div>
+          <div class="highlight-title">Fast WiFi</div>
+          <div class="highlight-desc">High-speed fiber internet included</div>
         </div>
-    </nav>
-
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Welcome to JB's Apartment</h1>
-                    <p>Experience luxury and comfort with our 2 premium Airbnb units and 8 modern apartment units, all featuring exceptional amenities and service</p>
-                    <div class="hero-buttons">
-                        <a href="units.html" class="btn btn-primary">Explore Units</a>
-                        <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-container">
-                    <img src="../assets/images/jbs-front.jpg" alt="JB's Apartment Building" loading="eager">
-                    <div class="image-overlay"></div>
-                </div>
-            </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🛏</div>
+          <div class="highlight-title">Fully Furnished</div>
+          <div class="highlight-desc">Move-in ready, everything provided</div>
         </div>
-    </section>
-
-    <section class="features" id="about">
-        <div class="container">
-            <h2>Why Choose JB's Apartment?</h2>
-            <div class="features-grid">
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">🏠</div>
-                    <h3>Premium Accommodations</h3>
-                    <p>Choose from 2 luxury Airbnb units (White &amp; Red) for short stays or 8 modern apartment units for extended living, all fully furnished with contemporary amenities.</p>
-                </div>
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">📍</div>
-                    <h3>Prime Location</h3>
-                    <p>Strategically located in the heart of the city with easy access to transportation, shopping centers, and local attractions.</p>
-                </div>
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>24/7 Security</h3>
-                    <p>Round-the-clock security surveillance, keycard access, and professional staff ensuring your safety and peace of mind.</p>
-                </div>
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">💰</div>
-                    <h3>Flexible Options</h3>
-                    <p>Whether you need a vacation rental or long-term housing, we offer competitive rates with flexible payment options and transparent billing.</p>
-                </div>
-            </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🔒</div>
+          <div class="highlight-title">24/7 Security</div>
+          <div class="highlight-desc">Round-the-clock CCTV &amp; personnel</div>
         </div>
-    </section>
-
-    <section class="units-preview" id="units">
-        <div class="container">
-            <h2>Our Premium Units</h2>
-            
-            <div class="units-category">
-                <h3 class="category-title">Airbnb Units - Short Term Rentals</h3>
-                <div class="units-grid">
-                    <div class="unit-card airbnb-unit">
-                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="White Airbnb Unit">
-                        <div class="unit-info">
-                            <h4>White Unit</h4>
-                            <p>Elegant white-themed Airbnb unit perfect for travelers seeking a clean, modern space with premium amenities and stylish decor.</p>
-                            <div class="unit-features">
-                                <span>2 Beds</span>
-                                <span>1 Bath</span>
-                                <span>40 sqm</span>
-                                <span class="unit-type">Airbnb</span>
-                            </div>
-                            <a href="#contact" class="btn btn-primary">Book Now</a>
-                        </div>
-                    </div>
-                    <div class="unit-card airbnb-unit">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Red Airbnb Unit">
-                        <div class="unit-info">
-                            <h4>Red Unit</h4>
-                            <p>Vibrant red-themed Airbnb unit offering a bold, contemporary design with all the comforts of home for your short-term stay.</p>
-                            <div class="unit-features">
-                                <span>2 Beds</span>
-                                <span>1 Bath</span>
-                                <span>40 sqm</span>
-                                <span class="unit-type">Airbnb</span>
-                            </div>
-                            <a href="#contact" class="btn btn-primary">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="units-category">
-                <h3 class="category-title">Apartment Units - Long Term Rentals</h3>
-                <div class="apartment-summary">
-                    <div class="summary-card">
-                        <div class="summary-icon">🏢</div>
-                        <div class="summary-content">
-                            <h4>8 Modern Apartment Units Available</h4>
-                            <p>Our apartment units are perfect for long-term stays, featuring spacious layouts, modern amenities, and flexible lease terms. Each unit is designed for comfort and convenience.</p>
-                            <div class="apartment-features">
-                                <div class="feature-item">
-                                    <span class="feature-label">Sizes:</span>
-                                    <span>Studio, 1BR, 2BR options</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-label">Area:</span>
-                                    <span>25-60 sqm</span>
-                                </div>
-                                <div class="feature-item">
-                                    <span class="feature-label">Lease:</span>
-                                    <span>Flexible terms available</span>
-                                </div>
-                            </div>
-                            <a href="#contact" class="btn btn-outline">Inquire Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🚗</div>
+          <div class="highlight-title">Prime Location</div>
+          <div class="highlight-desc">Near malls, hospitals &amp; transport</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="cta" id="contact">
-        <div class="container">
-            <h2>Ready to Experience Premium Living?</h2>
-            <p>Contact us today to book your Airbnb stay or inquire about our apartment units. We're here to help you find the perfect accommodation.</p>
-            <div class="cta-buttons">
-                <a href="tel:+15551234567" class="btn btn-primary">Call Now: +1 (555) 123-4567</a>
-                <a href="mailto:info@jbsapartment.com" class="btn btn-secondary">Email Us</a>
+  <!-- ═══ FEATURED UNITS ════════════════════════════════════════ -->
+  <section id="units">
+    <div class="container">
+      <div class="section-label">Accommodations</div>
+      <h2 class="section-title">Featured Units</h2>
+      <p class="section-sub">Choose from our Airbnb short-stay units or long-term apartment units — all fully furnished
+        and ready for occupancy.</p>
+
+      <div class="units-grid">
+        <!-- White Airbnb Unit -->
+        <div class="unit-card fade-up">
+          <div class="unit-card-img-wrap">
+            <img src="../assets/images/white/white1.jpg" alt="White Airbnb Unit" class="unit-card-img">
+          </div>
+          <div class="unit-card-body">
+            <div class="unit-card-top">
+              <span class="unit-card-name">White Unit</span>
+              <span class="badge badge-airbnb">Airbnb</span>
             </div>
+            <p class="unit-card-desc">Elegant white-themed short-stay unit with premium furnishings, great for travelers
+              seeking a clean, modern space.</p>
+            <div class="unit-specs-row">
+              <span class="unit-spec">🛏 2 Beds</span>
+              <span class="unit-spec">🚿 1 Bath</span>
+              <span class="unit-spec">📐 40 sqm</span>
+            </div>
+            <div class="unit-card-price">Starting at ₱1,500/night</div>
+            <div style="margin-top:16px; display:flex; gap:8px;">
+              <a href="units.html#white-unit" class="btn btn-outline btn-sm" style="flex:1;justify-content:center;">View
+                Details</a>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>JB's Apartment</h3>
-                    <p>Your premium home away from home. Choose from our 2 luxury Airbnb units for short stays or 8 modern apartments for long-term living in the heart of the city.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Our Accommodations</h4>
-                    <ul>
-                        <li><strong>Airbnb Units:</strong> White &amp; Red</li>
-                        <li><strong>Apartments:</strong> 8 Units Available</li>
-                        <li><strong>Lease Terms:</strong> Flexible Options</li>
-                        <li><strong>Booking:</strong> Online &amp; Phone</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="units.html">Units</a></li>
-                        <li><a href="amenities.html">Amenities</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Information</h4>
-                    <p>📞 +1 (555) 123-4567</p>
-                    <p>✉️ info@jbsapartment.com</p>
-                    <p>📍 Downtown Premium District</p>
-                    <p>🕒 Available 24/7</p>
-                </div>
+        <!-- Red Airbnb Unit -->
+        <div class="unit-card fade-up">
+          <div class="unit-card-img-wrap">
+            <img src="../assets/images/red/red1.jpg" alt="Red Airbnb Unit" class="unit-card-img">
+          </div>
+          <div class="unit-card-body">
+            <div class="unit-card-top">
+              <span class="unit-card-name">Red Unit</span>
+              <span class="badge badge-airbnb">Airbnb</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 JB's Apartment. All rights reserved. | Premium Accommodation Solutions</p>
+            <p class="unit-card-desc">Bold, vibrant red-themed unit with contemporary design — all the comforts of home
+              for your short-term stay.</p>
+            <div class="unit-specs-row">
+              <span class="unit-spec">🛏 2 Beds</span>
+              <span class="unit-spec">🚿 1 Bath</span>
+              <span class="unit-spec">📐 40 sqm</span>
             </div>
+            <div class="unit-card-price">Starting at ₱1,500/night</div>
+            <div style="margin-top:16px; display:flex; gap:8px;">
+              <a href="units.html#red-unit" class="btn btn-outline btn-sm" style="flex:1;justify-content:center;">View
+                Details</a>
+            </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="../assets/js/script.js"></script>
+        <!-- Apartment Units -->
+        <div class="unit-card fade-up">
+          <div class="unit-card-img-wrap">
+            <img src="../assets/images/apartment/apt1.jpg" alt="Apartment Units" class="unit-card-img">
+          </div>
+          <div class="unit-card-body">
+            <div class="unit-card-top">
+              <span class="unit-card-name">Apartment Units</span>
+              <span class="badge badge-apartment">Long Stay</span>
+            </div>
+            <p class="unit-card-desc">8 modern apartment units available for long-term rental. Spacious layouts,
+              flexible lease terms, perfect for families.</p>
+            <div class="unit-specs-row">
+              <span class="unit-spec">🏢 8 Available</span>
+              <span class="unit-spec">📐 25–60 sqm</span>
+            </div>
+            <div class="unit-card-price">Starting at ₱8,000/month</div>
+            <div style="margin-top:16px; display:flex; gap:8px;">
+              <a href="units.html#apartment-units" class="btn btn-outline btn-sm"
+                style="flex:1;justify-content:center;">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LOCATION PREVIEW ══════════════════════════════════════ -->
+  <section
+    style="background: var(--clr-surface); border-top:1px solid var(--clr-border); border-bottom:1px solid var(--clr-border);">
+    <div class="container">
+      <div class="location-grid">
+        <div class="fade-up">
+          <div class="section-label">Find Us</div>
+          <h2 class="section-title">Strategically Located</h2>
+          <div class="gold-divider"></div>
+          <p style="margin-bottom:24px; line-height:1.8;">Strategically located at Sampaguita St., Sulivan, Baliuag,
+            Bulacan near malls, churches, and transport hubs.</p>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:28px;">
+            <div class="landmark-item">
+              <span class="landmark-icon">🏪</span>
+              <div>
+                <div class="landmark-name">SM City Baliuag</div>
+                <div class="landmark-dist">Baliuag, Bulacan</div>
+              </div>
+              <span class="landmark-time">~5 min</span>
+            </div>
+            <div class="landmark-item">
+              <span class="landmark-icon">🏥</span>
+              <div>
+                <div class="landmark-name">Baliuag District Hospital</div>
+                <div class="landmark-dist">Baliuag, Bulacan</div>
+              </div>
+              <span class="landmark-time">~8 min</span>
+            </div>
+            <div class="landmark-item">
+              <span class="landmark-icon">🚌</span>
+              <div>
+                <div class="landmark-name">Baliuag Bus Terminal</div>
+                <div class="landmark-dist">Baliuag, Bulacan</div>
+              </div>
+              <span class="landmark-time">~10 min</span>
+            </div>
+          </div>
+          <a href="location.html" class="btn btn-gold">📍 Get Directions</a>
+        </div>
+        <div class="fade-up">
+          <div class="map-embed" style="height:360px;">
+            <iframe
+              src="https://maps.google.com/maps?q=JB%27s+Apartment+Sampaguita+St+Sulivan+Baliuag+Bulacan&output=embed"
+              height="360" allowfullscreen loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GUEST REVIEWS ═════════════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">What Our Guests Say</h2>
+      <p class="section-sub">Verified reviews from our Airbnb guests and long-term tenants.</p>
+
+      <div class="reviews-grid">
+        <div class="review-card fade-up">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Amazing place! Super clean, very comfortable beds, and the WiFi was blazing fast. The
+            host was very responsive and accommodating. Will definitely book again!"</p>
+          <div class="review-author">
+            <div class="review-avatar">👤</div>
+            <div>
+              <div class="review-name">Maria S.</div>
+              <div class="review-source">via Airbnb · White Unit</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Great value for the price. The unit was exactly as shown in the photos — even better
+            in person. Loved the location, very close to the mall. Highly recommend!"</p>
+          <div class="review-author">
+            <div class="review-avatar">👤</div>
+            <div>
+              <div class="review-name">John D.</div>
+              <div class="review-source">via Airbnb · Red Unit</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Been renting one of the apartment units for 6 months now. Super worth it! The
+            management is professional, responds quickly, and the building is always well-maintained."</p>
+          <div class="review-author">
+            <div class="review-avatar">👤</div>
+            <div>
+              <div class="review-name">Ana R.</div>
+              <div class="review-source">Long-term Tenant · Unit B</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>JB's Apartment</h3>
+          <p>Your premium home away from home. 2 Airbnb units for short stays, 8 modern apartments for long-term living
+            in the heart of Baliuag, Bulacan.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/JBsApartment" target="_blank" class="social-btn" title="Facebook">📘</a>
+            <a href="https://www.airbnb.com/rooms/1113813371026305159?source_impression_id=p3_1772187158_P3jXy-xeqGkRcX6z"
+              target="_blank" class="social-btn" title="Airbnb">🏠</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="units.html">Our Units</a></li>
+            <li><a href="inquiry.html">Send Inquiry</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="policies.html">Policies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Units</h4>
+          <ul>
+            <li><a href="units.html#white-unit">White Unit (Airbnb)</a></li>
+            <li><a href="units.html#red-unit">Red Unit (Airbnb)</a></li>
+            <li><a href="units.html#apartment-units">Apartment Units</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>Contact</h4>
+          <ul>
+            <li><span class="fc-icon">📞</span> 0945 581 3845</li>
+            <li><span class="fc-icon">✉️</span> markreyescruz1187@gmail.com</li>
+            <li><span class="fc-icon">📍</span> Sampaguita St., Sulivan, Baliuag 3006</li>
+            <li><span class="fc-icon">🕒</span> Available 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 JB's Apartment - Baliuag. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
 </body>
+
 </html>

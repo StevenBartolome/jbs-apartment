@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policies — JB's Apartment</title>
+    <meta name="description"
+        content="JB's Apartment house rules, booking terms, cancellation policy, security deposit, and damages policy. Read before booking.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        .policies-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media(max-width:840px) {
+            .policies-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .policy-nav {
+            position: sticky;
+            top: calc(var(--nav-height) + 24px);
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+        }
+
+        .policy-nav h4 {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--clr-gold);
+            margin-bottom: 14px;
+        }
+
+        .policy-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .policy-nav a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.83rem;
+            color: var(--clr-muted);
+            transition: var(--transition);
+        }
+
+        .policy-nav a:hover {
+            background: var(--clr-surface2);
+            color: var(--clr-text);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ══════════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">
+                <img src="../assets/images/jbs-logo-1.png" alt="JB's Logo" class="logo-img">
+                <h2>JB's Apartment</h2>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="units.html" class="nav-link">Our Units</a></li>
+                <li><a href="location.html" class="nav-link">Location</a></li>
+                <li><a href="policies.html" class="nav-link active">Policies</a></li>
+                <li><a href="inquiry.html" class="nav-link nav-cta btn btn-gold btn-sm">Inquire Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ PAGE HERO ════════════════════════════════════════════ -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Policies</span></div>
+            <h1>Policies &amp; House Rules</h1>
+            <p>Please read all policies carefully before submitting a reservation inquiry.</p>
+        </div>
+    </div>
+
+    <!-- ═══ POLICIES CONTENT ═════════════════════════════════════ -->
+    <section>
+        <div class="container">
+            <div class="policies-layout">
+
+                <!-- Sticky Nav -->
+                <div class="policy-nav fade-up">
+                    <h4>Jump To</h4>
+                    <ul>
+                        <li><a href="#booking-terms">Booking Terms</a></li>
+                        <li><a href="#cancellation">Cancellation Policy</a></li>
+                        <li><a href="#security-deposit">Security Deposit</a></li>
+                        <li><a href="#damages">Damages Policy</a></li>
+                        <li><a href="#house-rules">House Rules</a></li>
+                    </ul>
+                </div>
+
+                <!-- Policy Blocks -->
+                <div>
+
+                    <!-- 1. Booking Terms -->
+                    <div class="policy-block fade-up" id="booking-terms">
+                        <div class="policy-block-header">
+                            <span class="policy-icon">📋</span>
+                            <h3>Booking Terms</h3>
+                        </div>
+                        <ul class="policy-list">
+                            <li>Submitting an inquiry does <strong>NOT</strong> guarantee a reservation. Booking is only
+                                confirmed after full payment of the required deposit and written confirmation from
+                                management.</li>
+                            <li>Guests must be at least 18 years old to make a reservation.</li>
+                            <li>All reservations are subject to availability.</li>
+                            <li>Management reserves the right to refuse any reservation at their discretion.</li>
+                            <li>The number of guests must not exceed the maximum occupancy stated for each unit (4
+                                persons for Airbnb units).</li>
+                            <li>Guests are required to present a valid government-issued ID upon check-in.</li>
+                            <li>Check-in time is 2:00 PM. Check-out time is 12:00 PM (noon). Early check-in and late
+                                check-out may be accommodated subject to availability and additional fees.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. Cancellation Policy -->
+                    <div class="policy-block fade-up" id="cancellation">
+                        <div class="policy-block-header">
+                            <span class="policy-icon">🚫</span>
+                            <h3>Cancellation Policy</h3>
+                        </div>
+                        <ul class="policy-list">
+                            <li><strong>7 or more days before check-in:</strong> Full refund of the reservation deposit,
+                                minus processing fees.</li>
+                            <li><strong>3–6 days before check-in:</strong> 50% refund of the reservation deposit.</li>
+                            <li><strong>Less than 3 days before check-in:</strong> No refund. The deposit is forfeited.
+                            </li>
+                            <li>Cancellations must be submitted in writing via email or Facebook message to management.
+                            </li>
+                            <li>No-shows are treated as cancellations made less than 3 days before check-in — no refund.
+                            </li>
+                            <li>In the event that JB's Apartment must cancel a confirmed reservation (due to force
+                                majeure or unforeseen circumstances), a full refund will be issued.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Security Deposit -->
+                    <div class="policy-block fade-up" id="security-deposit">
+                        <div class="policy-block-header">
+                            <span class="policy-icon">💰</span>
+                            <h3>Security Deposit Policy</h3>
+                        </div>
+                        <ul class="policy-list">
+                            <li>A refundable security deposit is required to confirm all reservations.</li>
+                            <li><strong>Airbnb/Short-Term Units:</strong> Security deposit of ₱2,000.</li>
+                            <li><strong>Apartment/Long-Term Units:</strong> Two (2) months advance rent plus one (1)
+                                month security deposit is required upon move-in.</li>
+                            <li>The security deposit is refunded within 7–14 business days after check-out, provided no
+                                damages or violations have occurred.</li>
+                            <li>Deductions will be made for any damages, missing items, or unpaid utility bills before
+                                the deposit is refunded.</li>
+                            <li>An itemized statement of deductions will be provided to the guest if any amount is
+                                withheld from the deposit.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. Damages Policy -->
+                    <div class="policy-block fade-up" id="damages">
+                        <div class="policy-block-header">
+                            <span class="policy-icon">🔧</span>
+                            <h3>Damages Policy</h3>
+                        </div>
+                        <ul class="policy-list">
+                            <li>Guests are responsible for any damage to the unit, furniture, appliances, or fixtures
+                                caused during their stay.</li>
+                            <li>Damage must be reported to management immediately upon discovery. Failure to report
+                                damages may result in additional charges.</li>
+                            <li>Costs for repairs or replacements will be deducted from the security deposit. If damages
+                                exceed the deposit amount, the guest will be billed for the difference.</li>
+                            <li>Normal wear and tear is expected and will not be charged to the guest.</li>
+                            <li>Management reserves the right to document the condition of the unit before and after
+                                each stay through photos or inspection.</li>
+                            <li>Deliberate or gross negligence damage may result in immediate termination of stay
+                                without refund, and legal action if warranted.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 5. House Rules -->
+                    <div class="policy-block fade-up" id="house-rules">
+                        <div class="policy-block-header">
+                            <span class="policy-icon">🏠</span>
+                            <h3>House Rules</h3>
+                        </div>
+                        <ul class="policy-list">
+                            <li><strong>No smoking</strong> inside the unit or common areas. Designated smoking areas
+                                are provided outside.</li>
+                            <li><strong>No pets</strong> allowed unless explicitly pre-approved in writing by
+                                management.</li>
+                            <li><strong>Quiet hours are from 10:00 PM to 7:00 AM.</strong> Please be considerate of
+                                other residents.</li>
+                            <li><strong>No parties or events</strong> inside the unit without prior written approval
+                                from management.</li>
+                            <li>Visitors are allowed but must be registered at the front desk. Overnight visitors
+                                require management approval.</li>
+                            <li>Guests must keep the unit and shared areas clean and tidy at all times.</li>
+                            <li>Garbage must be properly disposed of in designated bins. Do not leave trash in hallways
+                                or common areas.</li>
+                            <li>Tampering with CCTV cameras, fire alarms, or any building equipment is strictly
+                                prohibited.</li>
+                            <li>Loud music or noise that disturbs neighbors will not be tolerated at any time.</li>
+                            <li>Subletting the unit to a third party without management's written consent is strictly
+                                prohibited and grounds for immediate termination of tenancy without refund.</li>
+                            <li>Management is not liable for any valuables left unattended inside the unit. Guests are
+                                advised to secure their belongings.</li>
+                            <li>Violation of any house rule may result in immediate eviction without refund.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Agreement Notice -->
+                    <div class="notice fade-up">
+                        <div class="notice-icon">✅</div>
+                        <div>
+                            By submitting a reservation inquiry, you confirm that you have read, understood, and agree
+                            to all the policies listed on this page.
+                            For clarifications, please <a href="https://www.facebook.com/JBsApartment"
+                                style="color:var(--clr-gold);">message us on Facebook</a> or <a href="inquiry.html"
+                                style="color:var(--clr-gold);">send us an inquiry</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>JB's Apartment</h3>
+                    <p>Premium stays in the heart of Baliuag, Bulacan.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/JBsApartment" target="_blank" class="social-btn">📘</a>
+                        <a href="https://www.airbnb.com/rooms/1113813371026305159?source_impression_id=p3_1772187158_P3jXy-xeqGkRcX6z"
+                            target="_blank" class="social-btn">🏠</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="units.html">Our Units</a></li>
+                        <li><a href="inquiry.html">Send Inquiry</a></li>
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#booking-terms">Booking Terms</a></li>
+                        <li><a href="#cancellation">Cancellation Policy</a></li>
+                        <li><a href="#security-deposit">Security Deposit</a></li>
+                        <li><a href="#damages">Damages</a></li>
+                        <li><a href="#house-rules">House Rules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><span class="fc-icon">📞</span> 0945 581 3845</li>
+                        <li><span class="fc-icon">📍</span> Sampaguita St., Sulivan, Baliuag 3006</li>
+                        <li><span class="fc-icon">🕒</span> Available 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 JB's Apartment - Baliuag. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

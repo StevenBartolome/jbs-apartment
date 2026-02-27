@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location — JB's Apartment</title>
+    <meta name="description"
+        content="Find JB's Apartment - Baliuag on Sampaguita St., Sulivan, Baliuag, Bulacan 3006. Get directions, view nearby landmarks, and plan your trip.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        .location-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media(max-width:900px) {
+            .location-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .travel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        @media(max-width:480px) {
+            .travel-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .travel-card {
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: var(--transition);
+        }
+
+        .travel-card:hover {
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+
+        .travel-icon {
+            font-size: 1.8rem;
+        }
+
+        .travel-mode {
+            font-size: 0.75rem;
+            color: var(--clr-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .travel-time {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--clr-gold);
+        }
+
+        .travel-from {
+            font-size: 0.8rem;
+            color: var(--clr-muted);
+        }
+
+        .address-card {
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-md);
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .address-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+            align-items: flex-start;
+        }
+
+        .address-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .address-label {
+            font-size: 0.72rem;
+            color: var(--clr-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 2px;
+        }
+
+        .address-value {
+            font-size: 0.9rem;
+            color: var(--clr-text);
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ══════════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">
+                <img src="../assets/images/jbs-logo-1.png" alt="JB's Logo" class="logo-img">
+                <h2>JB's Apartment</h2>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="units.html" class="nav-link">Our Units</a></li>
+                <li><a href="location.html" class="nav-link active">Location</a></li>
+                <li><a href="policies.html" class="nav-link">Policies</a></li>
+                <li><a href="inquiry.html" class="nav-link nav-cta btn btn-gold btn-sm">Inquire Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ PAGE HERO ════════════════════════════════════════════ -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Location</span></div>
+            <h1>Find Us</h1>
+            <p>Located at Sampaguita St., Sulivan, Baliuag, Bulacan — near malls, churches, and transport hubs.</p>
+        </div>
+    </div>
+
+    <!-- ═══ MAP + ADDRESS ════════════════════════════════════════ -->
+    <section>
+        <div class="container">
+
+            <!-- Full-Width Map -->
+            <div class="map-embed fade-up" style="margin-bottom:48px;">
+                <iframe
+                    src="https://maps.google.com/maps?q=JB%27s+Apartment+Sampaguita+St+Sulivan+Baliuag+Bulacan&output=embed"
+                    height="450" allowfullscreen loading="lazy">
+                </iframe>
+            </div>
+
+            <div class="location-layout">
+
+                <!-- Landmarks + Travel Times -->
+                <div>
+                    <div class="section-label">Nearby</div>
+                    <h2 style="margin-bottom:12px;">Nearby Landmarks</h2>
+                    <div class="gold-divider"></div>
+                    <p style="margin-bottom:28px;">Everything you need is just minutes away from JB's Apartment.</p>
+
+                    <div class="landmark-list fade-up">
+                        <div class="landmark-item">
+                            <span class="landmark-icon">🏪</span>
+                            <div>
+                                <div class="landmark-name">SM City Baliuag</div>
+                                <div class="landmark-dist">Baliuag, Bulacan</div>
+                            </div>
+                            <span class="landmark-time">~5 min</span>
+                        </div>
+                        <div class="landmark-item">
+                            <span class="landmark-icon">🏪</span>
+                            <div>
+                                <div class="landmark-name">Robinsons Place Malolos</div>
+                                <div class="landmark-dist">Malolos, Bulacan</div>
+                            </div>
+                            <span class="landmark-time">~20 min</span>
+                        </div>
+                        <div class="landmark-item">
+                            <span class="landmark-icon">🏥</span>
+                            <div>
+                                <div class="landmark-name">Baliuag District Hospital</div>
+                                <div class="landmark-dist">Medical &amp; Emergency</div>
+                            </div>
+                            <span class="landmark-time">~8 min</span>
+                        </div>
+                        <div class="landmark-item">
+                            <span class="landmark-icon">⛪</span>
+                            <div>
+                                <div class="landmark-name">Saint Augustine Parish Church</div>
+                                <div class="landmark-dist">Baliuag Town Center</div>
+                            </div>
+                            <span class="landmark-time">~10 min</span>
+                        </div>
+                        <div class="landmark-item">
+                            <span class="landmark-icon">🚌</span>
+                            <div>
+                                <div class="landmark-name">Baliuag Bus Terminal</div>
+                                <div class="landmark-dist">Inter-city transport hub</div>
+                            </div>
+                            <span class="landmark-time">~7 min</span>
+                        </div>
+                        <div class="landmark-item">
+                            <span class="landmark-icon">🏛️</span>
+                            <div>
+                                <div class="landmark-name">Baliuag Municipal Hall</div>
+                                <div class="landmark-dist">Government Center</div>
+                            </div>
+                            <span class="landmark-time">~8 min</span>
+                        </div>
+                        <div class="landmark-item">
+                            <span class="landmark-icon">⛽</span>
+                            <div>
+                                <div class="landmark-name">Petron / Shell Gas Station</div>
+                                <div class="landmark-dist">Fuel &amp; Convenience</div>
+                            </div>
+                            <span class="landmark-time">~3 min</span>
+                        </div>
+                        <div class="landmark-item">
+                            <span class="landmark-icon">🍽️</span>
+                            <div>
+                                <div class="landmark-name">Restaurants &amp; Food Hubs</div>
+                                <div class="landmark-dist">Multiple dining options nearby</div>
+                            </div>
+                            <span class="landmark-time">~2 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Travel Times -->
+                <h3 style="margin-top:48px;margin-bottom:20px;">Travel Times from Key Points</h3>
+                <div class="travel-grid fade-up">
+                    <div class="travel-card">
+                        <span class="travel-icon">🚌</span>
+                        <div>
+                            <div class="travel-mode">From</div>
+                            <div class="travel-from">Manila (Cubao/Taft Bus Terminal)</div>
+                            <div class="travel-time">~1.5 hrs</div>
+                        </div>
+                    </div>
+                    <div class="travel-card">
+                        <span class="travel-icon">🏙️</span>
+                        <div>
+                            <div class="travel-mode">From</div>
+                            <div class="travel-from">Malolos, Bulacan City</div>
+                            <div class="travel-time">~20 min</div>
+                        </div>
+                    </div>
+                    <div class="travel-card">
+                        <span class="travel-icon">🚗</span>
+                        <div>
+                            <div class="travel-mode">From</div>
+                            <div class="travel-from">NLEX Plaridel Exit</div>
+                            <div class="travel-time">~15 min</div>
+                        </div>
+                    </div>
+                    <div class="travel-card">
+                        <span class="travel-icon">🚆</span>
+                        <div>
+                            <div class="travel-mode">From</div>
+                            <div class="travel-from">Bocaue, Bulacan</div>
+                            <div class="travel-time">~25 min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address + Get Directions -->
+            <div class="fade-up">
+                <div class="address-card">
+                    <h4 style="margin-bottom:20px;color:var(--clr-gold);">📍 Address &amp; Contact</h4>
+                    <div class="address-row">
+                        <span class="address-icon">📍</span>
+                        <div>
+                            <div class="address-label">Address</div>
+                            <div class="address-value">Sampaguita St., Sulivan<br>Baliuag, Bulacan 3006</div>
+                        </div>
+                    </div>
+                    <div class="address-row">
+                        <span class="address-icon">📞</span>
+                        <div>
+                            <div class="address-label">Phone</div>
+                            <div class="address-value">0945 581 3845<br>+63 955 087 2221</div>
+                        </div>
+                    </div>
+                    <div class="address-row">
+                        <span class="address-icon">✉️</span>
+                        <div>
+                            <div class="address-label">Email</div>
+                            <div class="address-value">markreyescruz1187@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="address-row" style="margin-bottom:0;">
+                        <span class="address-icon">🕒</span>
+                        <div>
+                            <div class="address-label">Available</div>
+                            <div class="address-value">24 / 7</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://maps.google.com/?q=Sampaguita+St.+Sulivan+Baliuag+Bulacan+3006" target="_blank"
+                rel="noopener" class="btn btn-gold" style="width:100%;justify-content:center;margin-bottom:12px;">
+                📍 Get Directions on Google Maps
+            </a>
+            <a href="https://www.facebook.com/JBsApartment" target="_blank" rel="noopener" class="btn btn-facebook"
+                style="width:100%;justify-content:center;margin-bottom:12px;">
+                💬 Message Us on Facebook
+            </a>
+            <a href="inquiry.html" class="btn btn-outline" style="width:100%;justify-content:center;">
+                🔵 Send an Inquiry
+            </a>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>JB's Apartment</h3>
+                    <p>Premium stays in the heart of Baliuag, Bulacan.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/JBsApartment" target="_blank" class="social-btn">📘</a>
+                        <a href="https://www.airbnb.com/rooms/1113813371026305159?source_impression_id=p3_1772187158_P3jXy-xeqGkRcX6z" target="_blank"
+                            class="social-btn">🏠</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="units.html">Our Units</a></li>
+                        <li><a href="inquiry.html">Send Inquiry</a></li>
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Units</h4>
+                    <ul>
+                        <li><a href="units.html#white-unit">White Unit (Airbnb)</a></li>
+                        <li><a href="units.html#red-unit">Red Unit (Airbnb)</a></li>
+                        <li><a href="units.html#apartment-units">Apartment Units</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><span class="fc-icon">📞</span> 0945 581 3845</li>
+                        <li><span class="fc-icon">📍</span> Sampaguita St., Sulivan, Baliuag 3006</li>
+                        <li><span class="fc-icon">🕒</span> Available 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 JB's Apartment - Baliuag. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

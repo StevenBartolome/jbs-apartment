@@ -1,193 +1,740 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Units - JB's Apartment</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Our Units — JB's Apartment</title>
+    <meta name="description"
+        content="View our White and Red Airbnb units and apartment units. Full photo galleries, unit details, availability calendar, and booking options.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        /* Unit Detail Section */
+        .unit-section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        .unit-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .unit-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        @media(max-width:900px) {
+            .unit-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .unit-detail-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .unit-detail-table tr {
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        .unit-detail-table td {
+            padding: 10px 0;
+            font-size: 0.88rem;
+        }
+
+        .unit-detail-table td:first-child {
+            color: var(--clr-faint);
+            width: 45%;
+            font-weight: 500;
+        }
+
+        .unit-detail-table td:last-child {
+            color: var(--clr-text);
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .amenity-tag {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--clr-muted);
+            padding: 6px 0;
+        }
+
+        .amenity-tag::before {
+            content: '✓';
+            color: var(--clr-gold);
+            font-weight: 700;
+        }
+
+        .rates-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .rate-box {
+            background: var(--clr-surface2);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            text-align: center;
+        }
+
+        .rate-label {
+            font-size: 0.7rem;
+            color: var(--clr-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+
+        .rate-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--clr-gold);
+        }
+
+        .unit-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        /* Apartment grid */
+        .apt-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        @media(max-width:900px) {
+            .apt-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:480px) {
+            .apt-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .apt-card {
+            background: var(--clr-surface2);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .apt-card:hover {
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+
+        .apt-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .apt-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .apt-status {
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .cal-section {
+            margin-top: 32px;
+        }
+
+        .cal-section h4 {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation -->
+
+    <!-- ═══ NAVBAR ══════════════════════════════════════════════ -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <img src="../assets/images/jbs-logo-1.png" alt="JB's Apartment Logo" class="logo-img">
+            <a class="nav-logo" href="index.html">
+                <img src="../assets/images/jbs-logo-1.png" alt="JB's Logo" class="logo-img">
                 <h2>JB's Apartment</h2>
-            </div>
+            </a>
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="units.html" class="nav-link active">Units</a>
-                </li>
-                <li class="nav-item">
-                    <a href="amenities.html" class="nav-link">Amenities</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="units.html" class="nav-link active">Our Units</a></li>
+                <li><a href="location.html" class="nav-link">Location</a></li>
+                <li><a href="policies.html" class="nav-link">Policies</a></li>
+                <li><a href="inquiry.html" class="nav-link nav-cta btn btn-gold btn-sm">Inquire Now</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
             </div>
         </div>
     </nav>
 
-    <!-- Units Hero -->
-    <section class="page-hero">
+    <!-- ═══ PAGE HERO ════════════════════════════════════════════ -->
+    <div class="page-hero">
         <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Our Units</span></div>
             <h1>Our Units</h1>
-            <p>Choose from our variety of comfortable and well-equipped units</p>
+            <p>Explore our fully furnished Airbnb and apartment units with galleries, details &amp; availability.</p>
         </div>
-    </section>
+    </div>
 
-    <!-- Units Section -->
-    <section class="units-section">
+    <!-- ═══ WHITE AIRBNB UNIT ════════════════════════════════════ -->
+    <section class="unit-section" id="white-unit">
         <div class="container">
-            <div class="units-detailed">
-                <!-- Studio Unit -->
-                <div class="unit-detailed">
-                    <div class="unit-images">
-                        <img src="/placeholder.svg?height=300&width=400" alt="Studio Unit">
-                    </div>
-                    <div class="unit-details">
-                        <h2>Studio Unit</h2>
-                        <p class="unit-price">$50/night</p>
-                        <p class="unit-description">Perfect for solo travelers or couples seeking a cozy and efficient
-                            living space. Our studio units feature an open-plan design that maximizes comfort and
-                            functionality.</p>
-
-                        <div class="unit-specs">
-                            <h4>Specifications:</h4>
-                            <ul>
-                                <li>Size: 25 square meters</li>
-                                <li>1 Queen-size bed</li>
-                                <li>1 Full bathroom</li>
-                                <li>Kitchenette with basic appliances</li>
-                                <li>Work desk and chair</li>
-                                <li>Air conditioning</li>
-                                <li>Free Wi-Fi</li>
-                            </ul>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:40px;">
+                <span class="badge badge-airbnb" style="font-size:0.8rem;padding:6px 14px;">Airbnb · Short-Term</span>
+                <span class="badge badge-gold">Featured</span>
+            </div>
+            <div class="unit-layout">
+                <!-- Gallery -->
+                <div class="fade-up">
+                    <div class="gallery-grid">
+                        <div class="gallery-item gallery-main">
+                            <img src="../assets/images/white/white1.jpg" alt="White Unit Living Area">
                         </div>
-
-                        <a href="contact.html" class="btn btn-primary">Book Now</a>
+                        <div class="gallery-item">
+                            <img src="../assets/images/white/white2.jpg" alt="White Unit Bedroom">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../assets/images/white/white3.jpg" alt="White Unit Kitchen">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../assets/images/white/white4.jpg" alt="White Unit Bathroom">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../assets/images/white/white5.jpg" alt="White Unit Balcony">
+                        </div>
+                    </div>
+                    <!-- Extra photos strip -->
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;">
+                        <div class="gallery-item" style="height:140px;border-radius:var(--radius-sm);overflow:hidden;">
+                            <img src="../assets/images/white/white6.jpg" alt="White Unit Photo 6"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                        <div class="gallery-item" style="height:140px;border-radius:var(--radius-sm);overflow:hidden;">
+                            <img src="../assets/images/white/white7.jpg" alt="White Unit Photo 7"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                        <div class="gallery-item" style="height:140px;border-radius:var(--radius-sm);overflow:hidden;">
+                            <img src="../assets/images/white/white8.jpg" alt="White Unit Photo 8"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
                     </div>
                 </div>
 
-                <!-- One Bedroom Unit -->
-                <div class="unit-detailed">
-                    <div class="unit-images">
-                        <img src="/placeholder.svg?height=300&width=400" alt="One Bedroom Unit">
+                <!-- Details -->
+                <div class="fade-up">
+                    <div class="section-label">Airbnb Unit</div>
+                    <h2 style="margin-bottom:12px;">White Unit</h2>
+                    <div class="gold-divider"></div>
+                    <p style="margin-bottom:20px;">Elegant white-themed Airbnb unit ideal for travelers seeking a clean,
+                        modern space with premium amenities and stylish décor. Perfect for couples or small families.
+                    </p>
+
+                    <table class="unit-detail-table">
+                        <tr>
+                            <td>Maximum Guests</td>
+                            <td>4 persons</td>
+                        </tr>
+                        <tr>
+                            <td>Bed Type</td>
+                            <td>1 Queen + 1 Single</td>
+                        </tr>
+                        <tr>
+                            <td>Check-in</td>
+                            <td>2:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Check-out</td>
+                            <td>12:00 PM (Noon)</td>
+                        </tr>
+                        <tr>
+                            <td>Floor Area</td>
+                            <td>40 sqm</td>
+                        </tr>
+                        <tr>
+                            <td>Bathrooms</td>
+                            <td>1 Full Bathroom</td>
+                        </tr>
+                    </table>
+
+                    <h4 style="margin-bottom:12px;">Amenities</h4>
+                    <div class="amenities-grid">
+                        <div class="amenity-tag">Free WiFi</div>
+                        <div class="amenity-tag">Air Conditioning</div>
+                        <div class="amenity-tag">Smart TV</div>
+                        <div class="amenity-tag">Full Kitchen</div>
+                        <div class="amenity-tag">Refrigerator</div>
+                        <div class="amenity-tag">Washer</div>
+                        <div class="amenity-tag">Hot Water</div>
+                        <div class="amenity-tag">Balcony</div>
+                        <div class="amenity-tag">CCTV Security</div>
+                        <div class="amenity-tag">Parking Space</div>
                     </div>
-                    <div class="unit-details">
-                        <h2>One Bedroom Unit</h2>
-                        <p class="unit-price">$75/night</p>
-                        <p class="unit-description">Ideal for small families or guests who prefer separate living and
-                            sleeping areas. Features a dedicated bedroom and spacious living area.</p>
 
-                        <div class="unit-specs">
-                            <h4>Specifications:</h4>
-                            <ul>
-                                <li>Size: 35 square meters</li>
-                                <li>1 Separate bedroom with Queen bed</li>
-                                <li>1 Full bathroom</li>
-                                <li>Living room with sofa bed</li>
-                                <li>Full kitchen with dining area</li>
-                                <li>Balcony access</li>
-                                <li>Air conditioning</li>
-                                <li>Free Wi-Fi</li>
-                            </ul>
+                    <h4 style="margin: 20px 0 8px;">Rates</h4>
+                    <div class="rates-row">
+                        <div class="rate-box">
+                            <div class="rate-label">Weekday</div>
+                            <div class="rate-price">₱1,500</div>
                         </div>
+                        <div class="rate-box">
+                            <div class="rate-label">Weekend</div>
+                            <div class="rate-price">₱2,000</div>
+                        </div>
+                        <div class="rate-box">
+                            <div class="rate-label">Monthly</div>
+                            <div class="rate-price">₱25,000</div>
+                        </div>
+                    </div>
 
-                        <a href="contact.html" class="btn btn-primary">Book Now</a>
+                    <div class="unit-actions">
+                        <a href="inquiry.html?unit=white-unit" class="btn btn-gold">🔵 Send Inquiry</a>
+                        <a href="https://www.airbnb.com/rooms/1113813371026305159?source_impression_id=p3_1772187158_P3jXy-xeqGkRcX6z"
+                            target="_blank" rel="noopener" class="btn btn-airbnb">🏠 Book
+                            Securely on Airbnb</a>
+                        <a href="https://www.facebook.com/JBsApartment" target="_blank" rel="noopener"
+                            class="btn btn-facebook">💬
+                            Message on Facebook</a>
+                    </div>
+
+                    <div class="disclaimer">
+                        <strong>⚠️ Important:</strong> Submitting an inquiry does <strong>NOT</strong> guarantee
+                        reservation. Booking is confirmed only after payment and written confirmation from management.
                     </div>
                 </div>
+            </div>
 
-                <!-- Two Bedroom Unit -->
-                <div class="unit-detailed">
-                    <div class="unit-images">
-                        <img src="/placeholder.svg?height=300&width=400" alt="Two Bedroom Unit">
+            <!-- Availability Calendar -->
+            <div class="cal-section fade-up">
+                <h4>📅 Availability Calendar <span class="badge badge-gold" style="font-size:0.7rem;">View Only</span>
+                </h4>
+                <div class="calendar-wrap" data-unit="white">
+                    <div class="calendar-header">
+                        <button class="cal-nav cal-prev">‹</button>
+                        <span class="cal-month-label"></span>
+                        <button class="cal-nav cal-next">›</button>
                     </div>
-                    <div class="unit-details">
-                        <h2>Two Bedroom Unit</h2>
-                        <p class="unit-price">$100/night</p>
-                        <p class="unit-description">Perfect for families and groups, offering maximum space and privacy
-                            with two separate bedrooms and ample living space.</p>
-
-                        <div class="unit-specs">
-                            <h4>Specifications:</h4>
-                            <ul>
-                                <li>Size: 50 square meters</li>
-                                <li>2 Separate bedrooms (1 Queen, 1 Twin beds)</li>
-                                <li>2 Full bathrooms</li>
-                                <li>Spacious living room</li>
-                                <li>Full kitchen with dining area</li>
-                                <li>Large balcony</li>
-                                <li>Air conditioning in all rooms</li>
-                                <li>Free Wi-Fi</li>
-                            </ul>
+                    <div class="calendar-grid"></div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot dot-available"></div> Available
                         </div>
-
-                        <a href="contact.html" class="btn btn-primary">Book Now</a>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-booked"></div> Booked
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-pending"></div> Pending
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══ RED AIRBNB UNIT ══════════════════════════════════════ -->
+    <section class="unit-section" id="red-unit" style="background:var(--clr-surface);">
+        <div class="container">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:40px;">
+                <span class="badge badge-airbnb" style="font-size:0.8rem;padding:6px 14px;">Airbnb · Short-Term</span>
+            </div>
+            <div class="unit-layout">
+                <!-- Gallery -->
+                <div class="fade-up">
+                    <div class="gallery-grid">
+                        <div class="gallery-item gallery-main">
+                            <img src="../assets/images/red/red1.jpg" alt="Red Unit Living Area">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../assets/images/red/red2.jpg" alt="Red Unit Bedroom">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../assets/images/red/red3.jpg" alt="Red Unit Kitchen">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../assets/images/red/red4.jpg" alt="Red Unit Bathroom">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="../assets/images/red/red5.jpg" alt="Red Unit View">
+                        </div>
+                    </div>
+                    <!-- Extra photos strip -->
+                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;">
+                        <div class="gallery-item" style="height:120px;border-radius:var(--radius-sm);overflow:hidden;">
+                            <img src="../assets/images/red/red6.jpg" alt="Red Unit Photo 6"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                        <div class="gallery-item" style="height:120px;border-radius:var(--radius-sm);overflow:hidden;">
+                            <img src="../assets/images/red/red7.jpg" alt="Red Unit Photo 7"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                        <div class="gallery-item" style="height:120px;border-radius:var(--radius-sm);overflow:hidden;">
+                            <img src="../assets/images/red/red8.jpg" alt="Red Unit Photo 8"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                        <div class="gallery-item" style="height:120px;border-radius:var(--radius-sm);overflow:hidden;">
+                            <img src="../assets/images/red/red9.jpg" alt="Red Unit Photo 9"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Details -->
+                <div class="fade-up">
+                    <div class="section-label">Airbnb Unit</div>
+                    <h2 style="margin-bottom:12px;">Red Unit</h2>
+                    <div class="gold-divider"></div>
+                    <p style="margin-bottom:20px;">Vibrant red-themed Airbnb unit offering a bold, contemporary design
+                        with all the comforts of home. Great energy, great stay.</p>
+
+                    <table class="unit-detail-table">
+                        <tr>
+                            <td>Maximum Guests</td>
+                            <td>4 persons</td>
+                        </tr>
+                        <tr>
+                            <td>Bed Type</td>
+                            <td>1 Queen + 1 Single</td>
+                        </tr>
+                        <tr>
+                            <td>Check-in</td>
+                            <td>2:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Check-out</td>
+                            <td>12:00 PM (Noon)</td>
+                        </tr>
+                        <tr>
+                            <td>Floor Area</td>
+                            <td>40 sqm</td>
+                        </tr>
+                        <tr>
+                            <td>Bathrooms</td>
+                            <td>1 Full Bathroom</td>
+                        </tr>
+                    </table>
+
+                    <h4 style="margin-bottom:12px;">Amenities</h4>
+                    <div class="amenities-grid">
+                        <div class="amenity-tag">Free WiFi</div>
+                        <div class="amenity-tag">Air Conditioning</div>
+                        <div class="amenity-tag">Smart TV</div>
+                        <div class="amenity-tag">Full Kitchen</div>
+                        <div class="amenity-tag">Refrigerator</div>
+                        <div class="amenity-tag">Washer</div>
+                        <div class="amenity-tag">Hot Water</div>
+                        <div class="amenity-tag">Balcony</div>
+                        <div class="amenity-tag">CCTV Security</div>
+                        <div class="amenity-tag">Parking Space</div>
+                    </div>
+
+                    <h4 style="margin: 20px 0 8px;">Rates</h4>
+                    <div class="rates-row">
+                        <div class="rate-box">
+                            <div class="rate-label">Weekday</div>
+                            <div class="rate-price">₱1,500</div>
+                        </div>
+                        <div class="rate-box">
+                            <div class="rate-label">Weekend</div>
+                            <div class="rate-price">₱2,000</div>
+                        </div>
+                        <div class="rate-box">
+                            <div class="rate-label">Monthly</div>
+                            <div class="rate-price">₱25,000</div>
+                        </div>
+                    </div>
+
+                    <div class="unit-actions">
+                        <a href="inquiry.html?unit=red-unit" class="btn btn-gold">🔵 Send Inquiry</a>
+                        <a href="https://www.airbnb.com/rooms/1113813371026305159?source_impression_id=p3_1772187158_P3jXy-xeqGkRcX6z"
+                            target="_blank" rel="noopener" class="btn btn-airbnb">🏠 Book
+                            Securely on Airbnb</a>
+                        <a href="https://www.facebook.com/JBsApartment" target="_blank" rel="noopener"
+                            class="btn btn-facebook">💬
+                            Message on Facebook</a>
+                    </div>
+
+                    <div class="disclaimer">
+                        <strong>⚠️ Important:</strong> Submitting an inquiry does <strong>NOT</strong> guarantee
+                        reservation. Booking is confirmed only after payment and written confirmation from management.
+                    </div>
+                </div>
+            </div>
+
+            <div class="cal-section fade-up">
+                <h4>📅 Availability Calendar <span class="badge badge-gold" style="font-size:0.7rem;">View Only</span>
+                </h4>
+                <div class="calendar-wrap" data-unit="red">
+                    <div class="calendar-header">
+                        <button class="cal-nav cal-prev">‹</button>
+                        <span class="cal-month-label"></span>
+                        <button class="cal-nav cal-next">›</button>
+                    </div>
+                    <div class="calendar-grid"></div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot dot-available"></div> Available
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-booked"></div> Booked
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-pending"></div> Pending
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ APARTMENT UNITS ══════════════════════════════════════ -->
+    <section class="unit-section" id="apartment-units">
+        <div class="container">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                <span class="badge badge-apartment" style="font-size:0.8rem;padding:6px 14px;">Apartment ·
+                    Long-Term</span>
+            </div>
+            <div class="section-label">Long-Term Rentals</div>
+            <h2 style="margin-bottom:12px;">Apartment Units</h2>
+            <div class="gold-divider"></div>
+            <p style="max-width:600px;margin-bottom:12px;">8 modern apartment units perfect for long-term residents.
+                Spacious layouts, flexible lease terms, and all the comforts of home.</p>
+
+            <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start;" class="fade-up">
+                <div>
+                    <!-- Apartment photo grid -->
+                    <div
+                        style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;border-radius:var(--radius-md);overflow:hidden;">
+                        <div style="grid-column:1/3;height:220px;overflow:hidden;border-radius:var(--radius-sm);">
+                            <img src="../assets/images/apartment/apt1.jpg" alt="Apartment Unit"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                        <div style="height:220px;overflow:hidden;border-radius:var(--radius-sm);">
+                            <img src="../assets/images/apartment/apt2.jpg" alt="Apartment Unit"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                        <div style="height:160px;overflow:hidden;border-radius:var(--radius-sm);">
+                            <img src="../assets/images/apartment/apt3.jpg" alt="Apartment Unit"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                        <div style="height:160px;overflow:hidden;border-radius:var(--radius-sm);">
+                            <img src="../assets/images/apartment/apt4.jpg" alt="Apartment Unit"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                        <div style="height:160px;overflow:hidden;border-radius:var(--radius-sm);">
+                            <img src="../assets/images/apartment/apt5.jpg" alt="Apartment Unit"
+                                style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                    </div>
+
+                    <div class="apt-grid" style="margin-top:20px;">
+                        <div class="apt-card">
+                            <div class="apt-icon">🏠</div>
+                            <div class="apt-name">Unit A</div>
+                            <div class="apt-status" style="color:var(--clr-green)">Available</div>
+                        </div>
+                        <div class="apt-card">
+                            <div class="apt-icon">🏠</div>
+                            <div class="apt-name">Unit B</div>
+                            <div class="apt-status" style="color:var(--clr-red)">Occupied</div>
+                        </div>
+                        <div class="apt-card">
+                            <div class="apt-icon">🏠</div>
+                            <div class="apt-name">Unit C</div>
+                            <div class="apt-status" style="color:var(--clr-green)">Available</div>
+                        </div>
+                        <div class="apt-card">
+                            <div class="apt-icon">🏠</div>
+                            <div class="apt-name">Unit D</div>
+                            <div class="apt-status" style="color:var(--clr-amber)">Pending</div>
+                        </div>
+                        <div class="apt-card">
+                            <div class="apt-icon">🏠</div>
+                            <div class="apt-name">Unit E</div>
+                            <div class="apt-status" style="color:var(--clr-red)">Occupied</div>
+                        </div>
+                        <div class="apt-card">
+                            <div class="apt-icon">🏠</div>
+                            <div class="apt-name">Unit G</div>
+                            <div class="apt-status" style="color:var(--clr-green)">Available</div>
+                        </div>
+                        <div class="apt-card">
+                            <div class="apt-icon">🏠</div>
+                            <div class="apt-name">Unit H</div>
+                            <div class="apt-status" style="color:var(--clr-red)">Occupied</div>
+                        </div>
+                        <div class="apt-card">
+                            <div class="apt-icon">🏠</div>
+                            <div class="apt-name">Unit I</div>
+                            <div class="apt-status" style="color:var(--clr-green)">Available</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <table class="unit-detail-table">
+                        <tr>
+                            <td>Type</td>
+                            <td>Studio / 1BR options</td>
+                        </tr>
+                        <tr>
+                            <td>Floor Area</td>
+                            <td>25–60 sqm</td>
+                        </tr>
+                        <tr>
+                            <td>Max Occupants</td>
+                            <td>2–4 persons</td>
+                        </tr>
+                        <tr>
+                            <td>Lease Terms</td>
+                            <td>6 or 12 months</td>
+                        </tr>
+                        <tr>
+                            <td>Deposit</td>
+                            <td>2 months advance + 1 month deposit</td>
+                        </tr>
+                    </table>
+
+                    <h4 style="margin-bottom:12px;">Included in Monthly Rent</h4>
+                    <div class="amenities-grid">
+                        <div class="amenity-tag">Free WiFi</div>
+                        <div class="amenity-tag">Air Conditioning</div>
+                        <div class="amenity-tag">Water Supply</div>
+                        <div class="amenity-tag">CCTV Security</div>
+                        <div class="amenity-tag">Parking Space</div>
+                        <div class="amenity-tag">Building Maintenance</div>
+                        <div class="amenity-tag">24/7 Security Guard</div>
+                        <div class="amenity-tag">Common Area Access</div>
+                    </div>
+
+                    <h4 style="margin:20px 0 8px;">Monthly Rates</h4>
+                    <div class="rates-row">
+                        <div class="rate-box" style="grid-column:1/2;">
+                            <div class="rate-label">Studio</div>
+                            <div class="rate-price">₱8,000</div>
+                        </div>
+                        <div class="rate-box" style="grid-column:2/4;">
+                            <div class="rate-label">1 Bedroom</div>
+                            <div class="rate-price">₱12,000</div>
+                        </div>
+                    </div>
+
+                    <div class="unit-actions">
+                        <a href="inquiry.html?unit=apartment" class="btn btn-gold">🔵 Send Inquiry</a>
+                        <a href="https://www.facebook.com/JBsApartment" target="_blank" rel="noopener"
+                            class="btn btn-facebook">💬
+                            Message on Facebook</a>
+                    </div>
+                    <div class="disclaimer">
+                        <strong>⚠️ Important:</strong> Submitting an inquiry does <strong>NOT</strong> guarantee
+                        reservation. Booking is confirmed only after payment and written confirmation from management.
+                    </div>
+                </div>
+            </div>
+
+            <div class="cal-section fade-up">
+                <h4>📅 Unit Availability Calendar <span class="badge badge-gold" style="font-size:0.7rem;">View
+                        Only</span></h4>
+                <div class="calendar-wrap" data-unit="apartment">
+                    <div class="calendar-header">
+                        <button class="cal-nav cal-prev">‹</button>
+                        <span class="cal-month-label"></span>
+                        <button class="cal-nav cal-next">›</button>
+                    </div>
+                    <div class="calendar-grid"></div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <div class="legend-dot dot-available"></div> Available
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-booked"></div> Occupied
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-pending"></div> Pending
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="footer-grid">
+                <div class="footer-brand">
                     <h3>JB's Apartment</h3>
-                    <p>Your premium home away from home. Choose from our 2 luxury Airbnb units for short stays or 8
-                        modern apartments for long-term living in the heart of the city.</p>
+                    <p>Your premium home away from home in Baliuag, Bulacan.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/JBsApartment" target="_blank" class="social-btn">📘</a>
+                        <a href="https://www.airbnb.com/rooms/1113813371026305159?source_impression_id=p3_1772187158_P3jXy-xeqGkRcX6z"
+                            target="_blank" class="social-btn">🏠</a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Our Accommodations</h4>
-                    <ul>
-                        <li><strong>Airbnb Units:</strong> White &amp; Red</li>
-                        <li><strong>Apartments:</strong> 8 Units Available</li>
-                        <li><strong>Lease Terms:</strong> Flexible Options</li>
-                        <li><strong>Booking:</strong> Online &amp; Phone</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="units.html">Units</a></li>
-                        <li><a href="amenities.html">Amenities</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="units.html">Our Units</a></li>
+                        <li><a href="inquiry.html">Send Inquiry</a></li>
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="policies.html">Policies</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact Information</h4>
-                    <p>📞 +1 (555) 123-4567</p>
-                    <p>✉️ info@jbsapartment.com</p>
-                    <p>📍 Downtown Premium District</p>
-                    <p>🕒 Available 24/7</p>
+                <div class="footer-col">
+                    <h4>Units</h4>
+                    <ul>
+                        <li><a href="#white-unit">White Unit (Airbnb)</a></li>
+                        <li><a href="#red-unit">Red Unit (Airbnb)</a></li>
+                        <li><a href="#apartment-units">Apartment Units</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><span class="fc-icon">📞</span> 0945 581 3845</li>
+                        <li><span class="fc-icon">📍</span> Sampaguita St., Sulivan, Baliuag 3006</li>
+                        <li><span class="fc-icon">🕒</span> Available 24/7</li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 JB's Apartment. All rights reserved. | Premium Accommodation Solutions</p>
+                <p>© 2025 JB's Apartment - Baliuag. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="../assets/js/script.js"></script>
-
+    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>
