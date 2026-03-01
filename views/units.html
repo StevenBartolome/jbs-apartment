@@ -115,6 +115,57 @@
             margin-top: 24px;
         }
 
+        /* Apartment Photo Gallery */
+        .apt-gallery-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .apt-gallery-item {
+            overflow: hidden;
+            border-radius: var(--radius-sm);
+        }
+
+        .apt-gallery-main {
+            grid-column: 1 / 3;
+            height: 220px;
+        }
+
+        .apt-gallery-sub {
+            height: 220px;
+        }
+
+        .apt-gallery-small {
+            height: 160px;
+        }
+
+        @media(max-width: 600px) {
+            .apt-gallery-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .apt-gallery-main {
+                grid-column: 1 / -1;
+                height: 180px;
+            }
+
+            .apt-gallery-sub {
+                grid-column: 1 / -1;
+                height: 180px;
+            }
+
+            .apt-gallery-small {
+                height: 140px;
+            }
+
+            .apt-gallery-small:last-child {
+                display: none;
+            }
+        }
+
         /* Apartment grid */
         .apt-grid {
             display: grid;
@@ -530,28 +581,27 @@
             <p style="max-width:600px;margin-bottom:12px;">8 modern apartment units perfect for long-term residents.
                 Spacious layouts, flexible lease terms, and all the comforts of home.</p>
 
-            <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start;" class="fade-up">
+            <div class="unit-layout fade-up">
                 <div>
                     <!-- Apartment photo grid -->
-                    <div
-                        style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;border-radius:var(--radius-md);overflow:hidden;">
-                        <div style="grid-column:1/3;height:220px;overflow:hidden;border-radius:var(--radius-sm);">
+                    <div class="apt-gallery-container">
+                        <div class="apt-gallery-item apt-gallery-main">
                             <img src="../assets/images/apartment/apt1.jpg" alt="Apartment Unit"
                                 style="width:100%;height:100%;object-fit:cover;">
                         </div>
-                        <div style="height:220px;overflow:hidden;border-radius:var(--radius-sm);">
+                        <div class="apt-gallery-item apt-gallery-sub">
                             <img src="../assets/images/apartment/apt2.jpg" alt="Apartment Unit"
                                 style="width:100%;height:100%;object-fit:cover;">
                         </div>
-                        <div style="height:160px;overflow:hidden;border-radius:var(--radius-sm);">
+                        <div class="apt-gallery-item apt-gallery-small">
                             <img src="../assets/images/apartment/apt3.jpg" alt="Apartment Unit"
                                 style="width:100%;height:100%;object-fit:cover;">
                         </div>
-                        <div style="height:160px;overflow:hidden;border-radius:var(--radius-sm);">
+                        <div class="apt-gallery-item apt-gallery-small">
                             <img src="../assets/images/apartment/apt4.jpg" alt="Apartment Unit"
                                 style="width:100%;height:100%;object-fit:cover;">
                         </div>
-                        <div style="height:160px;overflow:hidden;border-radius:var(--radius-sm);">
+                        <div class="apt-gallery-item apt-gallery-small">
                             <img src="../assets/images/apartment/apt5.jpg" alt="Apartment Unit"
                                 style="width:100%;height:100%;object-fit:cover;">
                         </div>

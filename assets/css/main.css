@@ -448,6 +448,12 @@ section {
     gap: 16px;
 }
 
+@media(max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 label {
     display: block;
     font-size: 0.82rem;

@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const admin = require('firebase-admin');
+const nodemailer = require('nodemailer');
 
 // Initialize Firebase with your Service Account Key
 const serviceAccount = require('./serviceAccountKey.json');
@@ -39,6 +41,45 @@ app.post('/api/inquiry', async (req, res) => {
             agreedToRules: req.body.agreedToRules || false,
             timestamp: admin.firestore.FieldValue.serverTimestamp()
         });
+
+        // ─── Send Email Notification via Nodemailer ─────────
+        try {
+            // Configure transporter
+            const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: process.env.EMAIL_USER, // e.g., your-email@gmail.com
+                    pass: process.env.EMAIL_PASS  // your App Password
+                }
+            });
+
+            const mailOptions = {
+                from: `"JB's Apartment" <${process.env.EMAIL_USER}>`,
+                to: 'kopimendoza@gmail.com', // ⬅️ Destination email
+                subject: `New Inquiry from ${req.body.name || 'Guest'}`,
+                html: `
+                    <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+                        <h2 style="color: #b8892a; margin-top: 0;">New Reservation Inquiry</h2>
+                        <p><strong>Name:</strong> ${req.body.name || '-'}</p>
+                        <p><strong>Email:</strong> ${req.body.email || '-'}</p>
+                        <p><strong>Phone:</strong> ${req.body.phone || '-'}</p>
+                        <p><strong>Unit Preference:</strong> ${req.body.preferredUnit || '-'}</p>
+                        <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+                        <p><strong>Check-in:</strong> ${req.body.checkInDate || '-'}</p>
+                        <p><strong>Check-out:</strong> ${req.body.checkOutDate || '-'}</p>
+                        <p><strong>Guests:</strong> ${req.body.numGuests || '-'}</p>
+                        <p><strong>Special Requests:</strong><br/>${(req.body.specialRequests || '-').replace(/\n/g, '<br>')}</p>
+                    </div>
+                `
+            };
+
+            await transporter.sendMail(mailOptions);
+        } catch (emailError) {
+            console.error('Email sending failed (but inquiry was saved to Firebase):', emailError);
+            // We don't throw here because Firebase write was successful
+        }
+        // ────────────────────────────────────────────────────
+
         res.json({ success: true, message: 'Thank you! Our team will confirm availability within 24 hours.' });
     } catch (error) {
         console.error('Error saving inquiry to Firebase:', error);
