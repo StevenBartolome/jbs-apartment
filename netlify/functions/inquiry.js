@@ -49,7 +49,7 @@ exports.handler = async (event) => {
 
             const mailOptions = {
                 from: `"JB's Apartment" <${process.env.EMAIL_USER}>`,
-                to: 'kopimendoza@gmail.com', // ⬅️ Change this to whatever email you want to receive notifications
+                to: 'jbsapartment8@gmail.com', // ⬅️ Change this to whatever email you want to receive notifications
                 subject: `New Inquiry from ${body.name || 'Guest'}`,
                 html: `
                     <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px; border: 1px solid #eee; border-radius: 8px;">

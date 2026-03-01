@@ -508,12 +508,20 @@ select option {
 }
 
 .checkbox-group input[type="checkbox"] {
+    appearance: auto;
+    /* Fix: Restore standard checkbox view */
     width: 18px;
     height: 18px;
     flex-shrink: 0;
     margin-top: 2px;
     accent-color: var(--clr-gold);
     cursor: pointer;
+    border: none;
+    /* Overrides generic input border */
+    padding: 0;
+    /* Overrides generic input padding */
+    box-shadow: none;
+    /* Removes generic focus shadow */
 }
 
 .checkbox-group label {

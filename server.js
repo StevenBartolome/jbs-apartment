@@ -55,7 +55,7 @@ app.post('/api/inquiry', async (req, res) => {
 
             const mailOptions = {
                 from: `"JB's Apartment" <${process.env.EMAIL_USER}>`,
-                to: 'kopimendoza@gmail.com', // ⬅️ Destination email
+                to: 'jbsapartment8@gmail.com', // ⬅️ Destination email
                 subject: `New Inquiry from ${req.body.name || 'Guest'}`,
                 html: `
                     <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
