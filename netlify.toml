@@ -1,0 +1,53 @@
+# ── Build Settings ────────────────────────────────────────────
+[build]
+  publish   = "."                    # serve from project root (keeps ../assets/ paths working)
+  functions = "netlify/functions"    # serverless functions folder
+
+# ── Redirect API calls → Netlify Functions ────────────────────
+[[redirects]]
+  from   = "/api/inquiry"
+  to     = "/.netlify/functions/inquiry"
+  status = 200
+
+[[redirects]]
+  from   = "/api/contact"
+  to     = "/.netlify/functions/contact"
+  status = 200
+
+# ── Page routes → views/ folder ───────────────────────────────
+[[redirects]]
+  from   = "/"
+  to     = "/views/index.html"
+  status = 200
+
+[[redirects]]
+  from   = "/units"
+  to     = "/views/units.html"
+  status = 200
+
+[[redirects]]
+  from   = "/inquiry"
+  to     = "/views/inquiry.html"
+  status = 200
+
+[[redirects]]
+  from   = "/location"
+  to     = "/views/location.html"
+  status = 200
+
+[[redirects]]
+  from   = "/policies"
+  to     = "/views/policies.html"
+  status = 200
+
+[[redirects]]
+  from   = "/about"
+  to     = "/views/about.html"
+  status = 200
+
+# ── Also allow direct .html URLs ──────────────────────────────
+[[redirects]]
+  from   = "/*.html"
+  to     = "/views/:splat.html"
+  status = 200
+

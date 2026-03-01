@@ -1,1 +1,366 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry — JB's Apartment</title>
+    <meta name="description"
+        content="Send a reservation inquiry for JB's Apartment Airbnb or apartment units. We'll confirm availability within 24 hours.">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        .inquiry-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        @media(max-width:860px) {
+            .inquiry-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .inquiry-info {
+            position: sticky;
+            top: calc(var(--nav-height) + 24px);
+        }
+
+        .info-card {
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-md);
+            padding: 28px;
+            margin-bottom: 16px;
+        }
+
+        .info-card h4 {
+            margin-bottom: 16px;
+            color: var(--clr-gold);
+        }
+
+        .info-step {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--clr-gold-dim);
+            border: 1.5px solid var(--clr-gold);
+            color: var(--clr-gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-step p {
+            font-size: 0.83rem;
+            color: var(--clr-muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .info-step strong {
+            color: var(--clr-text);
+            display: block;
+            font-size: 0.88rem;
+            margin-bottom: 2px;
+        }
+
+        .form-card {
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-md);
+            padding: 36px;
+        }
+
+        .form-card h2 {
+            margin-bottom: 6px;
+        }
+
+        .form-card>p {
+            margin-bottom: 28px;
+        }
+
+        .form-divider {
+            border: none;
+            border-top: 1px solid var(--clr-border);
+            margin: 24px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ══════════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a class="nav-logo" href="index.html">
+                <img src="../assets/images/jbs-logo-1.png" alt="JB's Logo" class="logo-img">
+                <h2>JB's Apartment</h2>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="units.html" class="nav-link">Our Units</a></li>
+                <li><a href="location.html" class="nav-link">Location</a></li>
+                <li><a href="policies.html" class="nav-link">Policies</a></li>
+                <li><a href="inquiry.html" class="nav-link active nav-cta btn btn-gold btn-sm">Inquire Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ PAGE HERO ════════════════════════════════════════════ -->
+    <div class="page-hero">
+        <div class="container">
+            <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Inquiry</span></div>
+            <h1>Reservation Request</h1>
+            <p>Fill out the form below and our team will confirm availability within 24 hours.</p>
+        </div>
+    </div>
+
+    <!-- ═══ INQUIRY SECTION ══════════════════════════════════════ -->
+    <section>
+        <div class="container">
+            <div class="inquiry-layout">
+
+                <!-- Info Panel -->
+                <div class="inquiry-info fade-up">
+                    <div class="info-card">
+                        <h4>📋 How It Works</h4>
+                        <div class="info-step">
+                            <div class="step-num">1</div>
+                            <div><strong>Submit Inquiry</strong>
+                                <p>Fill out the form with your preferred dates and unit.</p>
+                            </div>
+                        </div>
+                        <div class="info-step">
+                            <div class="step-num">2</div>
+                            <div><strong>Await Confirmation</strong>
+                                <p>We'll check availability and respond within 24 hours.</p>
+                            </div>
+                        </div>
+                        <div class="info-step">
+                            <div class="step-num">3</div>
+                            <div><strong>Settle Payment</strong>
+                                <p>Pay the required deposit to confirm your reservation.</p>
+                            </div>
+                        </div>
+                        <div class="info-step">
+                            <div class="step-num">4</div>
+                            <div><strong>Written Confirmation</strong>
+                                <p>You'll receive written confirmation from management.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notice">
+                        <div class="notice-icon">⚠️</div>
+                        <div>Submitting this inquiry does <strong>NOT</strong> guarantee reservation. Your booking is
+                            only confirmed after payment and written confirmation from management.</div>
+                    </div>
+
+                    <div class="info-card" style="margin-top:16px;">
+                        <h4>📞 Contact Directly</h4>
+                        <p style="font-size:0.84rem;margin-bottom:12px;">Prefer to talk to us directly?</p>
+                        <a href="https://www.facebook.com/JBsApartment" target="_blank" class="btn btn-facebook"
+                            style="width:100%;justify-content:center;margin-bottom:8px;">💬 Message on Facebook</a>
+                        <a href="https://www.airbnb.com/rooms/1113813371026305159?source_impression_id=p3_1772187158_P3jXy-xeqGkRcX6z"
+                            target="_blank" class="btn btn-airbnb" style="width:100%;justify-content:center;">🏠 Book on
+                            Airbnb</a>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="fade-up">
+                    <div class="form-card">
+                        <h2>Inquiry Form</h2>
+                        <p>All fields marked * are required.</p>
+
+                        <!-- Success State -->
+                        <div id="success-message" class="success-message">
+                            <div class="success-icon">✅</div>
+                            <h3>Inquiry Sent!</h3>
+                            <p>Thank you! Our team will confirm availability within 24 hours. Please check your email
+                                for a response.</p>
+                            <a href="index.html" class="btn btn-gold" style="margin-top:24px;">Back to Home</a>
+                        </div>
+
+                        <!-- Form Wrap -->
+                        <div id="form-wrap">
+                            <form id="inquiryForm">
+                                <!-- Personal Info -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="full-name">Full Name *</label>
+                                        <input type="text" id="full-name" name="name" placeholder="Juan Dela Cruz"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-number">Contact Number *</label>
+                                        <input type="tel" id="contact-number" name="phone"
+                                            placeholder="+63 9XX XXX XXXX" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" placeholder="you@email.com" required>
+                                </div>
+
+                                <hr class="form-divider">
+
+                                <!-- Unit Selection -->
+                                <div class="form-group">
+                                    <label for="preferred-unit">Preferred Unit *</label>
+                                    <select id="preferred-unit" name="preferredUnit" required>
+                                        <option value="">— Select a unit —</option>
+                                        <optgroup label="Airbnb (Short-Term)">
+                                            <option value="white-unit">Deluxe (Airbnb)</option>
+                                            <option value="red-unit">Regular (Airbnb)</option>
+                                        </optgroup>
+                                        <optgroup label="Apartment (Long-Term)">
+                                            <option value="apartment-a">Apartment Unit A</option>
+                                            <option value="apartment-c">Apartment Unit C</option>
+                                            <option value="apartment-g">Apartment Unit G</option>
+                                            <option value="apartment-i">Apartment Unit I</option>
+                                            <option value="apartment-any">Any Available Apartment Unit</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+
+                                <!-- Check-in/out (shown for Airbnb) -->
+                                <div id="checkin-group" class="form-group">
+                                    <label for="check-in-date">Check-in Date</label>
+                                    <input type="date" id="check-in-date" name="checkInDate">
+                                </div>
+                                <div id="checkout-group" class="form-group">
+                                    <label for="check-out-date">Check-out Date</label>
+                                    <input type="date" id="check-out-date" name="checkOutDate">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="num-guests">Number of Guests *</label>
+                                    <select id="num-guests" name="numGuests" required>
+                                        <option value="">— Select —</option>
+                                        <option value="1">1 Guest</option>
+                                        <option value="2">2 Guests</option>
+                                        <option value="3">3 Guests</option>
+                                        <option value="4">4 Guests</option>
+                                    </select>
+                                </div>
+
+                                <hr class="form-divider">
+
+                                <div class="form-group">
+                                    <label for="special-requests">Special Requests</label>
+                                    <textarea id="special-requests" name="specialRequests" rows="4"
+                                        placeholder="Any special requirements, questions, or notes..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="checkbox-group">
+                                        <input type="checkbox" id="house-rules-agree" name="agreedToRules" required>
+                                        <label for="house-rules-agree">
+                                            I have read and agree to the <a href="policies.html"
+                                                style="color:var(--clr-gold);text-decoration:underline;"
+                                                target="_blank">House Rules &amp; Cancellation Policy</a> *
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-gold btn-lg" id="submit-btn"
+                                    style="width:100%;justify-content:center;">
+                                    <span id="btn-text">Send Inquiry</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>JB's Apartment</h3>
+                    <p>Premium stays in Baliuag, Bulacan for short and long-term guests.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/JBsApartment" target="_blank" class="social-btn">📘</a>
+                        <a href="https://www.airbnb.com/rooms/1113813371026305159?source_impression_id=p3_1772187158_P3jXy-xeqGkRcX6z"
+                            target="_blank" class="social-btn">🏠</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="units.html">Our Units</a></li>
+                        <li><a href="inquiry.html">Send Inquiry</a></li>
+                        <li><a href="location.html">Location</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Units</h4>
+                    <ul>
+                        <li><a href="units.html#white-unit">Deluxe (Airbnb)</a></li>
+                        <li><a href="units.html#red-unit">Regular (Airbnb)</a></li>
+                        <li><a href="units.html#apartment-units">Apartment Units</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><span class="fc-icon">📞</span> 0945 581 3845</li>
+                        <li><span class="fc-icon">📍</span> Sampaguita St., Sulivan, Baliuag 3006</li>
+                        <li><span class="fc-icon">🕒</span> Available 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 JB's Apartment - Baliuag. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/inquiry.js"></script>
+    <script>
+        // Pre-select unit from URL param
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const unit = params.get('unit');
+            if (unit) {
+                const sel = document.getElementById('preferred-unit');
+                if (sel) {
+                    for (let opt of sel.options) {
+                        if (opt.value === unit) { opt.selected = true; sel.dispatchEvent(new Event('change')); break; }
+                    }
+                }
+            }
+            // Hide date fields initially
+            const ci = document.getElementById('checkin-group');
+            const co = document.getElementById('checkout-group');
+            if (ci) ci.style.display = 'none';
+            if (co) co.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
